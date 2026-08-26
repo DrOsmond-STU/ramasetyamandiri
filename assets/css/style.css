@@ -192,18 +192,30 @@ section { padding: 96px 0; }
   position: relative;
   padding: 190px 0 140px;
   overflow: hidden;
-  background: linear-gradient(180deg, #063a63 0%, #0b5fa5 38%, #4fa8e0 75%, #bfe3f7 100%);
+  background: var(--navy);
   isolation: isolate;
 }
 
-.hero-sky { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-photo { position: absolute; inset: 0; z-index: 0; }
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(6,26,45,.82) 0%, rgba(9,53,88,.72) 40%, rgba(11,95,165,.55) 75%, rgba(21,68,109,.68) 100%);
+}
+
+.hero-sky { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
 
 .cloud {
   position: absolute;
   background: rgba(255,255,255,.85);
   border-radius: 999px;
   filter: blur(1px);
-  opacity: .85;
+  opacity: .5;
 }
 .cloud::before, .cloud::after {
   content: "";
@@ -215,21 +227,13 @@ section { padding: 96px 0; }
 .cloud-1::before { width: 90px; height: 90px; top: -46px; left: 20px; }
 .cloud-1::after { width: 70px; height: 70px; top: -32px; left: 90px; }
 
-.cloud-2 { width: 130px; height: 34px; top: 30%; left: -200px; animation: drift 26s linear infinite 4s; opacity: .7; }
+.cloud-2 { width: 130px; height: 34px; top: 30%; left: -200px; animation: drift 26s linear infinite 4s; opacity: .4; }
 .cloud-2::before { width: 66px; height: 66px; top: -32px; left: 14px; }
 .cloud-2::after { width: 50px; height: 50px; top: -24px; left: 66px; }
 
-.cloud-3 { width: 220px; height: 54px; top: 55%; left: -260px; animation: drift 48s linear infinite 10s; opacity: .55; }
+.cloud-3 { width: 220px; height: 54px; top: 55%; left: -260px; animation: drift 48s linear infinite 10s; opacity: .35; }
 .cloud-3::before { width: 110px; height: 110px; top: -56px; left: 26px; }
 .cloud-3::after { width: 84px; height: 84px; top: -40px; left: 110px; }
-
-.cloud-4 { width: 100px; height: 28px; top: 68%; left: -180px; animation: drift 22s linear infinite 2s; opacity: .5; }
-.cloud-4::before { width: 50px; height: 50px; top: -25px; left: 10px; }
-.cloud-4::after { width: 38px; height: 38px; top: -18px; left: 50px; }
-
-.cloud-5 { width: 160px; height: 40px; top: 8%; left: -220px; animation: drift 32s linear infinite 15s; opacity: .65; }
-.cloud-5::before { width: 80px; height: 80px; top: -40px; left: 18px; }
-.cloud-5::after { width: 60px; height: 60px; top: -28px; left: 80px; }
 
 @keyframes drift {
   from { transform: translateX(0); }
@@ -357,7 +361,14 @@ section { padding: 96px 0; }
   align-items: center;
 }
 .about-frame { position: relative; }
-.about-illustration { border-radius: 28px; box-shadow: var(--shadow-card); }
+.about-illustration {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: var(--shadow-card);
+}
 .badge-float {
   position: absolute;
   bottom: -18px; right: -18px;
@@ -370,14 +381,25 @@ section { padding: 96px 0; }
   box-shadow: var(--shadow-card);
   border-left: 3px solid var(--gold);
 }
-.about-points { list-style: none; padding: 0; margin: 1.4em 0; display: grid; gap: 12px; }
-.about-points li { color: var(--ink-soft); padding-left: 26px; position: relative; }
-.about-points li::before {
-  content: "✈";
-  position: absolute; left: 0; top: 0;
-  color: var(--gold);
+.vision-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 1.6em 0;
 }
-.about-points strong { color: var(--navy); }
+.vm-card {
+  background: var(--sky-pale);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+.vm-card h4 {
+  font-size: .95rem;
+  color: var(--sky-deep);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .6em;
+}
+.vm-card p { margin: 0; font-size: .9rem; }
 
 /* =========================================================
    Services
@@ -389,6 +411,7 @@ section { padding: 96px 0; }
   gap: 28px;
   margin-top: 20px;
 }
+.services-grid-2 { grid-template-columns: repeat(2, 1fr); }
 .service-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -404,6 +427,7 @@ section { padding: 96px 0; }
 }
 .service-icon {
   width: 56px; height: 56px;
+  flex-shrink: 0;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--sky-deep), var(--navy));
   color: var(--white);
@@ -415,8 +439,62 @@ section { padding: 96px 0; }
 .service-card h3 { margin-bottom: .35em; font-size: 1.15rem; }
 .service-card p { margin: 0; font-size: .92rem; }
 
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+}
+.tag-list li {
+  background: var(--sky-pale);
+  color: var(--sky-deep);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.service-highlight {
+  margin-top: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  border-top-color: var(--gold);
+}
+.service-highlight .service-icon { margin-bottom: 0; }
+.service-highlight h3 { margin-bottom: .3em; }
+.service-highlight p { margin: 0; }
+
 /* =========================================================
-   Destinations
+   Fleet
+   ========================================================= */
+.fleet { background: var(--white); }
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 20px;
+}
+.fleet-card {
+  background: var(--sky-pale);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform .3s ease;
+}
+.fleet-card:hover { transform: translateY(-6px); }
+.fleet-photo { height: 190px; overflow: hidden; }
+.fleet-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.fleet-card:hover .fleet-photo img { transform: scale(1.06); }
+.fleet-body { padding: 22px 24px 26px; }
+.fleet-body h3 { font-size: 1.1rem; margin-bottom: .4em; }
+.fleet-config { font-size: .85rem; color: var(--sky-deep); font-weight: 600; margin-bottom: .2em; }
+.fleet-cap { font-size: .85rem; margin: 0; }
+
+/* =========================================================
+   Destinations / Portfolio
    ========================================================= */
 .destinations { background: var(--white); }
 .dest-grid {
@@ -427,86 +505,126 @@ section { padding: 96px 0; }
 }
 .dest-card {
   position: relative;
-  height: 220px;
+  height: 260px;
+  margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  color: var(--white);
-  font-family: var(--font-head);
-  font-size: 1.3rem;
-  font-weight: 600;
   box-shadow: var(--shadow-card);
   transition: transform .35s ease;
 }
 .dest-card:hover { transform: scale(1.03); }
-.dest-card::before {
+.dest-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.dest-card:hover .dest-photo img,
+.dest-photo:hover img { transform: scale(1.08); }
+.dest-photo {
+  position: relative;
+  width: 100%; height: 100%;
+}
+.dest-photo::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,42,67,0) 40%, rgba(10,42,67,.75) 100%);
+  background: linear-gradient(180deg, rgba(10,42,67,0) 45%, rgba(10,42,67,.82) 100%);
 }
-.dest-card span { position: relative; z-index: 1; }
-.dest-a { background: linear-gradient(135deg, #1c6fa8, #7fc7ea); }
-.dest-b { background: linear-gradient(135deg, #0b5fa5, #4fa8e0); }
-.dest-c { background: linear-gradient(135deg, #0a2a43, #1c6fa8); }
-.dest-d { background: linear-gradient(135deg, #6b4b1f, #c9a24b); }
-.dest-e { background: linear-gradient(135deg, #14507e, #5aa8d6); }
-.dest-f { background: linear-gradient(135deg, #103a5c, #3d86bd); }
+.dest-photo figcaption {
+  position: absolute;
+  left: 20px; right: 20px; bottom: 18px;
+  z-index: 1;
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
 /* =========================================================
-   Process
+   Mengapa Kami
    ========================================================= */
 .process { background: var(--sky-pale); }
 .process-track { position: relative; margin-top: 30px; }
-.process-line { width: 100%; height: 60px; display: block; margin-bottom: -10px; }
-.process-line path { stroke: var(--gold); stroke-width: 2; stroke-dasharray: 6 8; fill: none; opacity: .6; }
 .process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
+.process-steps-4 { grid-template-columns: repeat(4, 1fr); }
 .process-step {
   background: var(--white);
   border-radius: var(--radius);
   padding: 30px 26px;
   box-shadow: var(--shadow-card);
-  text-align: center;
+  text-align: left;
 }
-.step-num {
+.step-icon {
   display: inline-flex;
   align-items: center; justify-content: center;
   width: 44px; height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: var(--navy);
-  font-family: var(--font-head);
-  font-weight: 700;
   margin-bottom: 14px;
 }
-.process-step h3 { margin-bottom: .3em; }
-.process-step p { font-size: .92rem; margin: 0; }
+.process-step h3 { margin-bottom: .3em; font-size: 1.05rem; }
+.process-step p { font-size: .9rem; margin: 0; }
 
 /* =========================================================
-   Testimonials
+   Mitra
    ========================================================= */
-.testimonials { background: var(--white); }
-.testi-grid {
+.partners { background: var(--white); }
+.partner-cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
   margin-top: 20px;
+  align-items: start;
 }
-.testi-card {
-  margin: 0;
+.partner-col {
   background: var(--sky-pale);
   border-radius: var(--radius);
-  padding: 30px 26px;
-  border-left: 3px solid var(--gold);
+  padding: 32px;
 }
-.testi-card p { color: var(--ink); font-style: italic; }
-.testi-card cite { font-style: normal; font-weight: 600; color: var(--navy); font-size: .88rem; }
-.testi-disclaimer { text-align: center; font-size: .78rem; color: var(--ink-soft); margin-top: 22px; opacity: .8; }
+.partner-col h3 {
+  font-size: 1.05rem;
+  color: var(--sky-deep);
+  margin-bottom: .8em;
+}
+.partner-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.partner-list li {
+  font-size: .88rem;
+  color: var(--ink-soft);
+  padding-left: 22px;
+  position: relative;
+}
+.partner-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 7px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.partner-list strong { color: var(--navy); }
+.partner-logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.partner-logos img {
+  height: 40px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .7;
+  transition: filter .25s ease, opacity .25s ease;
+}
+.partner-logos img:hover { filter: grayscale(0); opacity: 1; }
 
 /* =========================================================
    CTA
@@ -588,7 +706,8 @@ section { padding: 96px 0; }
    ========================================================= */
 @media (max-width: 1024px) {
   .about-inner { grid-template-columns: 1fr; }
-  .services-grid, .dest-grid, .testi-grid, .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .services-grid, .services-grid-2, .dest-grid, .fleet-grid, .process-steps, .process-steps-4 { grid-template-columns: repeat(2, 1fr); }
+  .vision-mission, .partner-cols { grid-template-columns: 1fr; }
   .search-card { grid-template-columns: 1fr 1fr; }
   .search-swap { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -613,7 +732,8 @@ section { padding: 96px 0; }
   .main-nav.open a { color: var(--ink); }
   .hero { padding: 150px 0 100px; }
   .search-card { grid-template-columns: 1fr; }
-  .services-grid, .dest-grid, .testi-grid, .process-steps { grid-template-columns: 1fr; }
+  .services-grid, .services-grid-2, .dest-grid, .fleet-grid, .process-steps, .process-steps-4 { grid-template-columns: 1fr; }
+  .service-highlight { flex-direction: column; }
   .cta-inner { flex-direction: column; text-align: center; }
   .footer-grid { grid-template-columns: 1fr; }
 }

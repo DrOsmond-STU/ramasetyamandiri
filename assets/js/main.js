@@ -1,9 +1,8 @@
 (function () {
   "use strict";
 
-  // ---- WhatsApp number used by the quick-search form and floating button.
-  // TODO: replace with the company's real WhatsApp number (format: country code + number, no symbols).
-  var WHATSAPP_NUMBER = "6281200000000";
+  // WhatsApp number used by the quick-request form and floating button.
+  var WHATSAPP_NUMBER = "6281321928034";
 
   document.addEventListener("DOMContentLoaded", function () {
     initHeaderScroll();
@@ -94,9 +93,9 @@
           if (start === null) start = timestamp;
           var progress = Math.min((timestamp - start) / duration, 1);
           var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.floor(eased * target).toLocaleString("id-ID");
+          el.textContent = Math.floor(eased * target);
           if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target.toLocaleString("id-ID");
+          else el.textContent = target;
         }
         requestAnimationFrame(step);
       });
@@ -142,11 +141,11 @@
         : "-";
 
       var message =
-        "Halo Rama Setya Mandiri, saya ingin menanyakan ketersediaan tiket:\n" +
+        "Halo PT Rama Setya Mandiri, saya ingin mengajukan permintaan penerbangan:\n" +
         "Dari: " + from + "\n" +
         "Ke: " + to + "\n" +
-        "Tanggal berangkat: " + departLabel + "\n" +
-        "Jumlah penumpang: " + pax;
+        "Tanggal dibutuhkan: " + departLabel + "\n" +
+        "Jenis muatan: " + pax;
 
       var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
       window.open(url, "_blank", "noopener");
@@ -157,7 +156,7 @@
   function initWhatsAppFloat() {
     var btn = document.getElementById("waFloat");
     if (!btn) return;
-    var message = "Halo Rama Setya Mandiri, saya ingin bertanya tentang layanan perjalanan.";
+    var message = "Halo PT Rama Setya Mandiri, saya ingin bertanya tentang layanan transportasi udara / Ground Handling.";
     btn.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
   }
 })();
