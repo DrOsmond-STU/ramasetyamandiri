@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rama Setya Mandiri | Sahabat Perjalanan Anda</title>
+<meta name="description" content="Rama Setya Mandiri — layanan tiket pesawat, paket tour &amp; travel, umroh, serta perjalanan bisnis dengan pelayanan elegan dan tepercaya.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34"><path fill="currentColor" d="M44.5 24c0 1.1-2.5 2.4-6.9 3.4l-9.4 2.1-1 8.6 4.4 3.4c.5.4.2 1.2-.4 1.2h-7.1l-2.1 2.6c-.3.4-1 .4-1.3 0l-2.1-2.6H11.5c-.6 0-.9-.8-.4-1.2l4.4-3.4-1-8.6-9.4-2.1C1.1 26.4-1.4 25.1-1.4 24c0-1.1 2.5-2.4 6.9-3.4l9.4-2.1 1-8.6-4.4-3.4c-.5-.4-.2-1.2.4-1.2h7.1l2.1-2.6c.3-.4 1-.4 1.3 0l2.1 2.6h7.1c.6 0 .9.8.4 1.2l-4.4 3.4 1 8.6 9.4 2.1c4.4 1 6.9 2.3 6.9 3.4z" transform="translate(3 0)"/></svg>
+      </span>
+      <span class="logo-text">Rama Setya <em>Mandiri</em></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#destinasi">Destinasi</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <a href="#pencarian" class="btn btn-outline nav-cta">Pesan Sekarang</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-sky" aria-hidden="true">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+    <svg class="plane-path" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+      <path id="flightPath" d="M -50,340 C 200,300 350,120 620,150 C 820,175 900,90 1050,60" fill="none"/>
+    </svg>
+    <div class="plane" id="heroPlane" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="46" height="46"><path fill="currentColor" d="M62 32c0 1.5-3.3 3.2-9.2 4.5L40.3 39l-1.3 11.5 5.9 4.5c.7.5.3 1.6-.6 1.6h-9.5l-2.8 3.5c-.4.5-1.3.5-1.7 0l-2.8-3.5H18c-.9 0-1.3-1.1-.6-1.6l5.9-4.5L22 39 9.2 36.5C3.3 35.2 0 33.5 0 32s3.3-3.2 9.2-4.5L22 25l1.3-11.5-5.9-4.5c-.7-.5-.3-1.6.6-1.6h9.5l2.8-3.5c.4-.5 1.3-.5 1.7 0l2.8 3.5H43c.9 0 1.3 1.1.6 1.6L37.7 13 39 25l12.8 2.5C57.7 28.8 62 30.5 62 32z"/></svg>
+    </div>
+  </div>
+
+  <div class="container hero-inner">
+    <p class="eyebrow reveal">Biro Perjalanan &amp; Tiket Pesawat</p>
+    <h1 class="reveal">Setiap Perjalanan Adalah <span>Kisah yang Layak Dikenang</span></h1>
+    <p class="hero-sub reveal">Rama Setya Mandiri menemani perjalanan udara, wisata, dan bisnis Anda — mulai dari tiket pesawat, paket tour, umroh, hingga pengurusan dokumen — dengan layanan yang elegan, personal, dan tepercaya.</p>
+    <div class="hero-actions reveal">
+      <a href="#pencarian" class="btn btn-primary">Cari Tiket &amp; Paket</a>
+      <a href="#layanan" class="btn btn-ghost">Lihat Layanan</a>
+    </div>
+  </div>
+
+  <!-- Quick search / booking card -->
+  <div class="container">
+    <form class="search-card reveal" id="searchForm">
+      <div class="search-field">
+        <label for="from">Dari</label>
+        <input type="text" id="from" name="from" placeholder="Kota asal" autocomplete="off" required>
+      </div>
+      <div class="search-swap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6 3l4 4H7v10h2l-4 4-4-4h2V7H1l4-4h1zm12 0l4 4h-2v10h2l-4 4-4-4h2V7h-3l4-4h1z" transform="scale(.9) translate(1,1)"/></svg>
+      </div>
+      <div class="search-field">
+        <label for="to">Ke</label>
+        <input type="text" id="to" name="to" placeholder="Kota tujuan" autocomplete="off" required>
+      </div>
+      <div class="search-field">
+        <label for="depart">Tanggal Berangkat</label>
+        <input type="date" id="depart" name="depart" required>
+      </div>
+      <div class="search-field">
+        <label for="pax">Penumpang</label>
+        <select id="pax" name="pax">
+          <option>1 Penumpang</option>
+          <option>2 Penumpang</option>
+          <option>3 Penumpang</option>
+          <option>4+ Penumpang</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary search-submit">
+        <span>Cari Sekarang</span>
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </form>
+    <p class="search-note" id="pencarian">Permintaan akan dikirim langsung ke tim kami melalui WhatsApp untuk penawaran tercepat.</p>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="stats-strip">
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <span class="stat-num" data-count="15">0</span><span class="stat-suffix">+</span>
+      <p>Tahun Pengalaman</p>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-num" data-count="120">0</span><span class="stat-suffix">+</span>
+      <p>Destinasi Terjangkau</p>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-num" data-count="25000">0</span><span class="stat-suffix">+</span>
+      <p>Pelanggan Terlayani</p>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-num" data-count="24">0</span><span class="stat-suffix">/7</span>
+      <p>Layanan Siaga</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TENTANG KAMI ============ -->
+<section class="about" id="tentang">
+  <div class="container about-inner">
+    <div class="about-visual reveal">
+      <div class="about-frame">
+        <svg viewBox="0 0 400 400" class="about-illustration" aria-hidden="true">
+          <circle cx="200" cy="200" r="180" fill="url(#skyGrad)"/>
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#bfe3f7"/>
+              <stop offset="1" stop-color="#eaf6fd"/>
+            </linearGradient>
+          </defs>
+          <g fill="#ffffff" opacity="0.9">
+            <ellipse cx="120" cy="150" rx="55" ry="20"/>
+            <ellipse cx="160" cy="140" rx="40" ry="16"/>
+            <ellipse cx="290" cy="250" rx="60" ry="22"/>
+            <ellipse cx="250" cy="260" rx="35" ry="14"/>
+          </g>
+          <g transform="translate(140,180) rotate(-18)" fill="#0B5FA5">
+            <path d="M110 0c0 2.6-5.8 5.6-16 7.8L70 12l-2.3 20 10.3 7.9c1.2.9.5 2.8-1 2.8h-16.6l-4.9 6.1c-.7.9-2.3.9-3 0l-4.9-6.1H31c-1.5 0-2.2-1.9-1-2.8L40.3 32 38 12 21.6 7.8C11.4 5.6 5.6 2.6 5.6 0S11.4-5.6 21.6-7.8L38-12l2.3-20-10.3-7.9c-1.2-.9-.5-2.8 1-2.8h16.6l4.9-6.1c.7-.9 2.3-.9 3 0l4.9 6.1H70c1.5 0 2.2 1.9 1 2.8L60.7-32 63-12l16.4 4.2C89.6-5.6 95.4-2.6 95.4 0"/>
+          </g>
+        </svg>
+        <span class="badge-float">Est. sejak awal berdiri</span>
+      </div>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow reveal">Tentang Kami</p>
+      <h2 class="reveal">Mitra Perjalanan yang Mengutamakan Ketenangan Anda</h2>
+      <p class="reveal">Rama Setya Mandiri hadir sebagai biro perjalanan yang memadukan kemudahan reservasi modern dengan sentuhan pelayanan personal. Kami percaya bahwa perjalanan terbaik dimulai dari perencanaan yang tenang, transparan, dan didampingi tim yang benar-benar peduli pada kenyamanan Anda.</p>
+      <ul class="about-points reveal">
+        <li><strong>Tepercaya</strong> — proses reservasi jelas, transparan, dan didukung tim berpengalaman.</li>
+        <li><strong>Personal</strong> — setiap itinerary disesuaikan dengan kebutuhan perjalanan Anda.</li>
+        <li><strong>Responsif</strong> — layanan konsultasi cepat melalui telepon maupun WhatsApp.</li>
+      </ul>
+      <a href="#kontak" class="btn btn-outline reveal">Konsultasi Gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAYANAN ============ -->
+<section class="services" id="layanan">
+  <div class="container">
+    <p class="eyebrow center reveal">Layanan Kami</p>
+    <h2 class="center reveal">Solusi Perjalanan dari Awal hingga Tiba di Tujuan</h2>
+    <p class="section-sub center reveal">Beragam kebutuhan perjalanan Anda, kami tangani dalam satu genggaman.</p>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M2.5 19l19-8-19-8v6l14 2-14 2z"/></svg></div>
+        <h3>Tiket Pesawat</h3>
+        <p>Reservasi tiket domestik &amp; internasional dengan rute dan jadwal yang fleksibel sesuai kebutuhan Anda.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2C8 2 5 5.5 5 9.5c0 5.5 7 12.5 7 12.5s7-7 7-12.5C19 5.5 16 2 12 2zm0 10a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg></div>
+        <h3>Paket Tour &amp; Wisata</h3>
+        <p>Itinerary wisata domestik dan mancanegara yang dirancang rapi, mulai dari perjalanan singkat hingga tur panjang.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2l2.4 6.9L21 9.3l-5.5 4.4L17.4 21 12 17l-5.4 4 1.9-7.3L3 9.3l6.6-.4z"/></svg></div>
+        <h3>Umroh &amp; Perjalanan Religi</h3>
+        <p>Pendampingan perjalanan ibadah dengan persiapan dokumen dan jadwal keberangkatan yang matang.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M4 10h16v9H4v-9zm2-6h12v4H6V4zm-2 4h16l1 2H3l1-2z"/></svg></div>
+        <h3>Reservasi Hotel</h3>
+        <p>Pemesanan akomodasi terpercaya di berbagai destinasi, disesuaikan dengan anggaran dan preferensi Anda.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg></div>
+        <h3>Dokumen Perjalanan</h3>
+        <p>Bantuan pengurusan paspor, visa, dan kelengkapan dokumen lain agar perjalanan Anda bebas hambatan.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M3 21V8l9-5 9 5v13h-6v-7H9v7H3z"/></svg></div>
+        <h3>Perjalanan Bisnis</h3>
+        <p>Pengelolaan perjalanan dinas korporat, dari pemesanan tiket massal hingga laporan perjalanan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTINASI ============ -->
+<section class="destinations" id="destinasi">
+  <div class="container">
+    <p class="eyebrow center reveal">Destinasi Favorit</p>
+    <h2 class="center reveal">Ke Mana Pun Tujuan Anda, Kami Siap Mengantar</h2>
+
+    <div class="dest-grid">
+      <div class="dest-card dest-a reveal"><span>Bali</span></div>
+      <div class="dest-card dest-b reveal"><span>Yogyakarta</span></div>
+      <div class="dest-card dest-c reveal"><span>Jakarta</span></div>
+      <div class="dest-card dest-d reveal"><span>Makkah &amp; Madinah</span></div>
+      <div class="dest-card dest-e reveal"><span>Singapura</span></div>
+      <div class="dest-card dest-f reveal"><span>Kuala Lumpur</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES ============ -->
+<section class="process">
+  <div class="container">
+    <p class="eyebrow center reveal">Cara Kerja</p>
+    <h2 class="center reveal">Tiga Langkah Menuju Keberangkatan</h2>
+
+    <div class="process-track">
+      <svg class="process-line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M50,30 C300,-10 700,70 950,30" fill="none"/>
+      </svg>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <span class="step-num">01</span>
+          <h3>Konsultasi</h3>
+          <p>Sampaikan kebutuhan perjalanan Anda melalui form pencarian atau WhatsApp.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="step-num">02</span>
+          <h3>Penawaran</h3>
+          <p>Tim kami menyiapkan pilihan tiket dan paket terbaik sesuai anggaran Anda.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="step-num">03</span>
+          <h3>Keberangkatan</h3>
+          <p>Dokumen siap, tiket di tangan — perjalanan Anda pun dimulai dengan tenang.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section class="testimonials" id="testimoni">
+  <div class="container">
+    <p class="eyebrow center reveal">Testimoni</p>
+    <h2 class="center reveal">Cerita dari Perjalanan yang Sudah Terwujud</h2>
+
+    <div class="testi-grid">
+      <blockquote class="testi-card reveal">
+        <p>“Prosesnya cepat dan sangat komunikatif. Tiket keluarga kami untuk liburan ke Bali diurus dengan rapi.”</p>
+        <cite>— Ayu S., Jakarta</cite>
+      </blockquote>
+      <blockquote class="testi-card reveal">
+        <p>“Pengurusan perjalanan umroh keluarga besar kami dibantu dari awal sampai kepulangan. Sangat membantu.”</p>
+        <cite>— Bapak Hidayat, Bandung</cite>
+      </blockquote>
+      <blockquote class="testi-card reveal">
+        <p>“Untuk kebutuhan perjalanan dinas kantor, responnya cepat dan harga selalu bersaing.”</p>
+        <cite>— Dinda P., Surabaya</cite>
+      </blockquote>
+    </div>
+    <p class="testi-disclaimer">*Contoh testimoni — silakan perbarui dengan ulasan asli dari pelanggan Anda.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container cta-inner reveal">
+    <div>
+      <h2>Siap Merencanakan Perjalanan Berikutnya?</h2>
+      <p>Tim kami siap membantu, mulai dari konsultasi hingga hari keberangkatan.</p>
+    </div>
+    <a href="#kontak" class="btn btn-light">Hubungi Kami</a>
+  </div>
+</section>
+
+<!-- ============ KONTAK / FOOTER ============ -->
+<footer class="site-footer" id="kontak">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="logo logo-light">
+        <span class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="30" height="30"><path fill="currentColor" d="M44.5 24c0 1.1-2.5 2.4-6.9 3.4l-9.4 2.1-1 8.6 4.4 3.4c.5.4.2 1.2-.4 1.2h-7.1l-2.1 2.6c-.3.4-1 .4-1.3 0l-2.1-2.6H11.5c-.6 0-.9-.8-.4-1.2l4.4-3.4-1-8.6-9.4-2.1C1.1 26.4-1.4 25.1-1.4 24c0-1.1 2.5-2.4 6.9-3.4l9.4-2.1 1-8.6-4.4-3.4c-.5-.4-.2-1.2.4-1.2h7.1l2.1-2.6c.3-.4 1-.4 1.3 0l2.1 2.6h7.1c.6 0 .9.8.4 1.2l-4.4 3.4 1 8.6 9.4 2.1c4.4 1 6.9 2.3 6.9 3.4z" transform="translate(3 0)"/></svg>
+        </span>
+        <span class="logo-text">Rama Setya <em>Mandiri</em></span>
+      </a>
+      <p>Sahabat perjalanan Anda — tiket pesawat, tour, umroh, dan perjalanan bisnis dalam satu layanan yang elegan dan tepercaya.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#destinasi">Destinasi</a>
+      <a href="#testimoni">Testimoni</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <a href="#layanan">Tiket Pesawat</a>
+      <a href="#layanan">Paket Tour</a>
+      <a href="#layanan">Umroh &amp; Religi</a>
+      <a href="#layanan">Perjalanan Bisnis</a>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>Kontak</h4>
+      <!-- TODO: ganti dengan data kontak resmi perusahaan -->
+      <p>Jl. Contoh Alamat No. 00<br>Jakarta, Indonesia</p>
+      <p><a href="tel:+622100000000">(021) 0000-0000</a></p>
+      <p><a href="mailto:info@ramasetyamandiri.com">info@ramasetyamandiri.com</a></p>
+      <p>Senin–Sabtu, 08.00–17.00 WIB</p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; <span id="year"></span> Rama Setya Mandiri. Seluruh hak cipta dilindungi.</p>
+  </div>
+</footer>
+
+<a href="#" class="whatsapp-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26"><path fill="currentColor" d="M16 2C8.3 2 2 8.3 2 16c0 2.7.8 5.3 2.2 7.5L2 30l6.7-2.1C10.8 29.2 13.3 30 16 30c7.7 0 14-6.3 14-14S23.7 2 16 2zm0 25.5c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4 1.2 1.2-3.9-.3-.5C4.4 20.1 3.7 18.1 3.7 16c0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 27.5 16 27.5zm6.8-9.2c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.9 6.2 5.3.9.4 1.5.6 2.1.7.9.3 1.6.2 2.2.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
