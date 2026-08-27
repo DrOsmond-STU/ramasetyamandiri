@@ -263,15 +263,16 @@ section { padding: 96px 0; }
   .plane { top: 20%; left: 10%; animation: none; }
 }
 
-.hero-inner { position: relative; z-index: 2; max-width: 720px; text-align: left; }
+.hero-inner { position: relative; z-index: 2; max-width: 100%; text-align: left; }
 .hero .eyebrow { color: var(--gold-light); }
 .hero h1 {
   color: var(--white);
-  font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+  font-size: clamp(2.3rem, 5.2vw, 4.4rem);
   margin-bottom: .4em;
+  max-width: 1000px;
 }
 .hero h1 span { color: var(--gold-light); }
-.hero-sub { color: rgba(255,255,255,.88); font-size: 1.05rem; max-width: 560px; }
+.hero-sub { color: rgba(255,255,255,.88); font-size: 1.05rem; max-width: 780px; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
 
 /* Search card */
