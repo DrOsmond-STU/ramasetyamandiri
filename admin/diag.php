@@ -1,47 +1,34 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
-echo "pdo_mysql.default_socket = " . ini_get('pdo_mysql.default_socket') . "\n";
-echo "mysqli.default_socket    = " . ini_get('mysqli.default_socket') . "\n";
-echo "PHP_BINARY = " . PHP_BINARY . "\n";
-echo "PHP_VERSION = " . PHP_VERSION . "\n";
-
-$candidates = [
-    '/var/lib/mysql/mysql.sock',
-    '/tmp/mysql.sock',
-    '/var/run/mysqld/mysqld.sock',
-    '/var/run/mysql/mysql.sock',
-    '/opt/alt/mysql-server/var/lib/mysql/mysql.sock',
-    '/home/mysql/mysql.sock',
-];
-foreach ($candidates as $c) {
-    echo ($c) . ' => ' . (file_exists($c) ? 'EXISTS' : 'missing') . "\n";
-}
-
-echo "\n--- Trying connections ---\n";
-$configs = [
-    'localhost (default socket)' => ['host' => 'localhost'],
-    '127.0.0.1:3306' => ['host' => '127.0.0.1'],
-];
-foreach ($candidates as $c) {
-    if (file_exists($c)) {
-        $configs["unix_socket=$c"] = ['socket' => $c];
-    }
-}
+echo "gethostname() = " . gethostname() . "\n";
+echo "php_uname()   = " . php_uname() . "\n";
+echo "SERVER_NAME   = " . ($_SERVER['SERVER_NAME'] ?? '') . "\n";
+echo "SERVER_ADDR   = " . ($_SERVER['SERVER_ADDR'] ?? '') . "\n";
+echo "SERVER_ADMIN  = " . ($_SERVER['SERVER_ADMIN'] ?? '') . "\n";
+echo "DOCUMENT_ROOT = " . ($_SERVER['DOCUMENT_ROOT'] ?? '') . "\n";
+echo "\n";
 
 $user = 'ramasety_cms';
 $pass = 'YEWA55ayQCo8KDrPbfAA3IB8';
 $db = 'ramasety_den821';
 
-foreach ($configs as $label => $cfg) {
+$hostCandidates = array_unique(array_filter([
+    'localhost',
+    '127.0.0.1',
+    gethostname(),
+    $_SERVER['SERVER_NAME'] ?? null,
+    $_SERVER['SERVER_ADDR'] ?? null,
+    'mysql.ramasetyamandiri.com',
+    'mysql.' . ($_SERVER['SERVER_NAME'] ?? ''),
+]));
+
+echo "--- Trying connections ---\n";
+foreach ($hostCandidates as $host) {
     try {
-        if (isset($cfg['socket'])) {
-            $dsn = "mysql:unix_socket={$cfg['socket']};dbname=$db;charset=utf8mb4";
-        } else {
-            $dsn = "mysql:host={$cfg['host']};dbname=$db;charset=utf8mb4";
-        }
+        $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
         $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_TIMEOUT => 3]);
-        echo "$label => OK\n";
+        echo "$host => OK\n";
     } catch (Throwable $e) {
-        echo "$label => FAIL: " . $e->getMessage() . "\n";
+        echo "$host => FAIL: " . $e->getMessage() . "\n";
     }
 }
