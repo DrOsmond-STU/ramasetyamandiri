@@ -1,29 +1,28 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
-echo "gethostname() = " . gethostname() . "\n";
-echo "php_uname()   = " . php_uname() . "\n";
-echo "SERVER_NAME   = " . ($_SERVER['SERVER_NAME'] ?? '') . "\n";
-echo "SERVER_ADDR   = " . ($_SERVER['SERVER_ADDR'] ?? '') . "\n";
-echo "SERVER_ADMIN  = " . ($_SERVER['SERVER_ADMIN'] ?? '') . "\n";
-echo "DOCUMENT_ROOT = " . ($_SERVER['DOCUMENT_ROOT'] ?? '') . "\n";
-echo "\n";
+echo "open_basedir = " . ini_get('open_basedir') . "\n";
+echo "disable_functions = " . ini_get('disable_functions') . "\n\n";
+
+echo "--- glob searches ---\n";
+foreach (['/var/lib/mysql/*.sock', '/tmp/*.sock', '/run/*mysql*', '/var/run/*mysql*', '/*.sock'] as $pattern) {
+    $r = @glob($pattern);
+    echo "$pattern => " . ($r === false ? 'blocked/false' : (empty($r) ? '(none)' : implode(', ', $r))) . "\n";
+}
+
+echo "\n--- shell_exec find ---\n";
+if (function_exists('shell_exec')) {
+    $out = @shell_exec('find / -maxdepth 4 -iname "*mysql*.sock" 2>/dev/null');
+    echo $out === null ? '(blocked or empty)' : $out;
+} else {
+    echo "shell_exec disabled\n";
+}
 
 $user = 'ramasety_cms';
 $pass = 'YEWA55ayQCo8KDrPbfAA3IB8';
 $db = 'ramasety_den821';
 
-$hostCandidates = array_unique(array_filter([
-    'localhost',
-    '127.0.0.1',
-    gethostname(),
-    $_SERVER['SERVER_NAME'] ?? null,
-    $_SERVER['SERVER_ADDR'] ?? null,
-    'mysql.ramasetyamandiri.com',
-    'mysql.' . ($_SERVER['SERVER_NAME'] ?? ''),
-]));
-
-echo "--- Trying connections ---\n";
-foreach ($hostCandidates as $host) {
+echo "\n--- Trying more hosts ---\n";
+foreach (['mysql', 'db', 'database', 'localhost:3306'] as $host) {
     try {
         $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
         $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_TIMEOUT => 3]);
