@@ -1,0 +1,8 @@
+# CMS secrets & runtime data — never commit these
+admin/config.php
+admin/data/*
+!admin/data/.gitkeep
+
+# OS / editor cruft
+.DS_Store
+*.swp

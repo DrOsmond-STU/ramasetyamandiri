@@ -142,6 +142,13 @@ section { padding: 96px 0; }
 .logo em { font-style: normal; color: var(--gold); }
 .logo-icon { color: var(--gold); display: flex; }
 
+/* Uploaded logo image (CMS) */
+.logo-img { height: 38px; width: auto; display: block; }
+.logo-swap-dark { display: none; }
+.site-header.scrolled .logo-swap-light { display: none; }
+.site-header.scrolled .logo-swap-dark { display: block; }
+.site-footer .logo-img { height: 32px; }
+
 .main-nav { display: flex; gap: 34px; }
 .main-nav a {
   position: relative;

@@ -7,15 +7,17 @@ Konten diambil dari materi resmi perusahaan: *Company Profile PT Rama Setya Mand
 ## Struktur file
 
 ```
-index.html             Halaman utama (satu halaman, semua section)
-assets/css/style.css   Semua styling & animasi
-assets/js/main.js      Interaksi: nav sticky, menu mobile, animasi scroll,
-                        counter statistik, form pengajuan -> WhatsApp
-assets/img/            Logo, foto armada, foto portofolio, logo mitra
-                        (diekstrak dari company profile PPTX)
+index.php               Halaman utama (dinamis, mengambil isi dari database via CMS)
+assets/css/style.css    Semua styling & animasi
+assets/js/main.js       Interaksi: nav sticky, menu mobile, animasi scroll,
+                         counter statistik, form pengajuan -> WhatsApp
+assets/img/              Logo, foto armada, foto portofolio, logo mitra
+assets/img/uploads/      File yang diunggah lewat panel admin (logo, foto)
+admin/                   Panel admin CMS (lihat bagian "Panel Admin (CMS)" di bawah)
+database/schema.sql      Referensi skema database (dibuat otomatis oleh admin/install.php)
 ```
 
-Tidak ada dependency eksternal selain Google Fonts (Playfair Display + Poppins). Tinggal buka `index.html` di browser, atau upload seluruh folder ke hosting.
+Membutuhkan PHP + MySQL (tersedia di hosting cPanel). Halaman depan tidak lagi berupa HTML statis murni — `index.php` merender isi dari database lewat CMS di `admin/`.
 
 ## Tentang perusahaan (ringkasan sumber)
 
@@ -52,8 +54,46 @@ Situs lama menggunakan WordPress (tema Themify Ultra) di `public_html`. Karena s
 
 > Saya belum meng-upload apa pun ke hosting/domain live — perubahan ini baru ada di branch git `claude/website-rebranding-d8ap0l`. Beri tahu saya jika Anda ingin saya langsung deploy ke `new.ramasetyamandiri.com` untuk pratinjau.
 
+## Panel Admin (CMS)
+
+Seluruh teks halaman, logo perusahaan, dan gambar (hero, tentang kami, armada,
+portofolio, logo mitra) bisa diubah sendiri lewat panel admin di `/admin/`,
+tanpa perlu edit kode atau minta bantuan developer lagi.
+
+- **Login**: `https://new.ramasetyamandiri.com/admin/login.php`
+- **Identitas & Logo** (`admin/settings.php`): upload logo perusahaan (versi
+  terang untuk latar gelap & versi gelap untuk header saat discroll), nama
+  perusahaan, teks hero, tentang kami, judul tiap section, CTA, dan info
+  kontak/footer (termasuk nomor WhatsApp).
+- **Konten per bagian** (menu sidebar "Konten Halaman"): tambah/ubah/hapus/
+  urutkan ulang item pada Statistik, Layanan, Armada, Mengapa Kami, Mitra
+  (Transportasi Udara & Ground Handling), Logo Mitra, dan Portofolio.
+- **Ganti Password**: wajib dilakukan setelah login pertama kali dengan
+  password sementara hasil instalasi.
+
+### Setup teknis (sekali saja, sudah dilakukan saat deploy awal)
+
+1. Salin `admin/config.sample.php` menjadi `admin/config.php`, isi kredensial
+   database (file ini sengaja **tidak** ikut ke git — lihat `.gitignore`).
+2. Buka `admin/install.php` sekali lewat browser untuk membuat tabel database
+   dan mengisi konten awal (mengikuti isi situs yang sudah tayang). Skrip ini
+   mengunci dirinya sendiri setelah berhasil dan menolak dijalankan ulang.
+3. Kredensial admin default (dibuat otomatis oleh installer) diberikan lewat
+   jalur terpisah di luar HTTP publik — segera login dan ganti password.
+
+### Keamanan
+
+- Password admin disimpan ter-hash (`password_hash`/bcrypt), sesi login pakai
+  cookie `httponly`, dan setiap form ber-CSRF token.
+- Upload gambar divalidasi tipe MIME-nya (`JPG/PNG/WEBP/SVG` saja, maks 4MB)
+  dan disimpan dengan nama acak; folder `assets/img/uploads/` diblokir agar
+  file di dalamnya tidak bisa dieksekusi sebagai skrip.
+- `admin/config.php` dan `admin/data/` (kredensial instalasi, kunci instalasi)
+  diblokir dari akses HTTP langsung lewat `.htaccess`.
+
 ## Kustomisasi cepat
 
+- **Konten sehari-hari** (teks, logo, foto, kontak, nomor WhatsApp): pakai
+  panel admin di atas — tidak perlu edit file.
 - **Warna**: ubah variabel di bagian `:root` pada `assets/css/style.css` (`--navy`, `--sky-deep`, `--gold`, dst).
-- **Nomor WhatsApp**: ubah `WHATSAPP_NUMBER` di `assets/js/main.js`.
-- **Foto**: ganti file di `assets/img/` dengan nama file yang sama, atau update path-nya di `index.html`.
+- **Layout/animasi**: edit `assets/css/style.css` dan `assets/js/main.js` langsung.

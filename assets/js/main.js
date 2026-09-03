@@ -2,7 +2,8 @@
   "use strict";
 
   // WhatsApp number used by the quick-request form and floating button.
-  var WHATSAPP_NUMBER = "6281321928034";
+  // Overridable from the CMS via window.CMS_WHATSAPP_NUMBER (set inline in index.php).
+  var WHATSAPP_NUMBER = window.CMS_WHATSAPP_NUMBER || "6281321928034";
 
   document.addEventListener("DOMContentLoaded", function () {
     initHeaderScroll();
