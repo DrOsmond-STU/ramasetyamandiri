@@ -22,11 +22,19 @@ function cms_db(): PDO
     static $pdo = null;
     if ($pdo === null) {
         $config = cms_config();
-        $dsn = sprintf(
-            'mysql:host=%s;dbname=%s;charset=utf8mb4',
-            $config['db_host'],
-            $config['db_name']
-        );
+        if (!empty($config['db_socket'])) {
+            $dsn = sprintf(
+                'mysql:unix_socket=%s;dbname=%s;charset=utf8mb4',
+                $config['db_socket'],
+                $config['db_name']
+            );
+        } else {
+            $dsn = sprintf(
+                'mysql:host=%s;dbname=%s;charset=utf8mb4',
+                $config['db_host'],
+                $config['db_name']
+            );
+        }
         try {
             $pdo = new PDO($dsn, $config['db_user'], $config['db_pass'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
