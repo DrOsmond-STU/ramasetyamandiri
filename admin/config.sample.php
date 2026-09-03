@@ -5,12 +5,13 @@
  * boleh masuk ke git — sudah didaftarkan di .gitignore.
  */
 return [
-    'db_host' => 'localhost',
-    // Isi db_socket jika koneksi TCP/socket default tidak berhasil (lihat error
-    // "SQLSTATE[HY000] [2002]"). Di hosting ini soket MySQL yang benar ada di
-    // /tmp/mysql.sock, bukan lokasi default PHP. Kosongkan ('') untuk memakai
-    // db_host di atas.
-    'db_socket' => '/tmp/mysql.sock',
+    // Di hosting ini database berjalan di server TERPISAH (bukan di server web),
+    // jadi db_host harus hostname MySQL remote-nya — cek lewat cPanel > MySQL
+    // Databases, atau panggil UAPI Mysql::get_server_information.
+    'db_host' => 'aprica-db.id.rapidplex.com',
+    // Isi db_socket hanya jika MySQL berjalan lokal lewat unix socket (biarkan
+    // kosong untuk koneksi TCP ke db_host di atas, seperti kasus di hosting ini).
+    'db_socket' => '',
     'db_name' => 'ramasety_den821',
     'db_user' => 'ramasety_cms',
     'db_pass' => 'GANTI_DENGAN_PASSWORD_ASLI',
