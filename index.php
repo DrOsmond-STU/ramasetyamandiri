@@ -5,6 +5,7 @@ require_once __DIR__ . '/admin/includes/functions.php';
 try {
     $settings = cms_get_all_settings();
     $stats = cms_get_content('stats');
+    $organization = cms_get_content('organization');
     $services = cms_get_content('services');
     $fleet = cms_get_content('fleet');
     $process = cms_get_content('process');
@@ -17,7 +18,7 @@ try {
     // Database sedang tidak tersedia — tetap tampilkan halaman dengan nilai kosong
     // daripada menampilkan error mentah ke pengunjung.
     $settings = [];
-    $stats = $services = $fleet = $process = $partnersAviation = $partnersGround = $partnerLogos = $destinations = [];
+    $stats = $organization = $services = $fleet = $process = $partnersAviation = $partnersGround = $partnerLogos = $destinations = [];
     $cmsOk = false;
 }
 
@@ -66,6 +67,7 @@ function s(string $key, string $default = ''): string
 
     <nav class="main-nav" id="mainNav">
       <a href="#tentang">Tentang</a>
+      <a href="#struktur">Struktur</a>
       <a href="#layanan">Layanan</a>
       <a href="#armada">Armada</a>
       <a href="#mitra">Mitra</a>
@@ -186,6 +188,26 @@ function s(string $key, string $default = ''): string
     </div>
   </div>
 </section>
+
+<?php if ($organization): ?>
+<!-- ============ STRUKTUR ORGANISASI ============ -->
+<section class="org-structure" id="struktur">
+  <div class="container">
+    <p class="eyebrow center reveal"><?= e(s('org_eyebrow', 'Struktur Organisasi')) ?></p>
+    <h2 class="center reveal"><?= e(s('org_headline', 'Tim di Balik Operasional Kami')) ?></h2>
+
+    <div class="org-grid">
+      <?php foreach ($organization as $person): ?>
+        <article class="org-card reveal">
+          <div class="org-photo"><img src="<?= e($person['image_path']) ?>" alt="Foto <?= e($person['title']) ?>"></div>
+          <h3><?= e($person['title']) ?></h3>
+          <p class="org-role"><?= e($person['subtitle']) ?></p>
+        </article>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
 
 <!-- ============ LAYANAN ============ -->
 <section class="services" id="layanan">
@@ -357,6 +379,7 @@ function s(string $key, string $default = ''): string
     <div class="footer-col">
       <h4>Navigasi</h4>
       <a href="#tentang">Tentang Kami</a>
+      <a href="#struktur">Struktur Organisasi</a>
       <a href="#layanan">Layanan</a>
       <a href="#armada">Armada</a>
       <a href="#mitra">Mitra Kami</a>

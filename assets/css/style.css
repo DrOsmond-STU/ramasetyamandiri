@@ -409,6 +409,37 @@ section { padding: 96px 0; }
 .vm-card p { margin: 0; font-size: .9rem; }
 
 /* =========================================================
+   Struktur Organisasi
+   ========================================================= */
+.org-structure { background: var(--sky-pale); }
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 20px;
+}
+.org-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform .3s ease;
+}
+.org-card:hover { transform: translateY(-6px); }
+.org-photo {
+  width: 108px; height: 108px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--sky-pale);
+  box-shadow: var(--shadow-card);
+}
+.org-photo img { width: 100%; height: 100%; object-fit: cover; }
+.org-card h3 { font-size: 1.02rem; margin-bottom: .25em; }
+.org-role { color: var(--gold); font-weight: 600; font-size: .85rem; margin: 0; }
+
+/* =========================================================
    Services
    ========================================================= */
 .services { background: var(--sky-pale); }
@@ -714,6 +745,7 @@ section { padding: 96px 0; }
 @media (max-width: 1024px) {
   .about-inner { grid-template-columns: 1fr; }
   .services-grid, .services-grid-2, .dest-grid, .fleet-grid, .process-steps, .process-steps-4 { grid-template-columns: repeat(2, 1fr); }
+  .org-grid { grid-template-columns: repeat(3, 1fr); }
   .vision-mission, .partner-cols { grid-template-columns: 1fr; }
   .search-card { grid-template-columns: 1fr 1fr; }
   .search-swap { display: none; }
@@ -740,6 +772,7 @@ section { padding: 96px 0; }
   .hero { padding: 150px 0 100px; }
   .search-card { grid-template-columns: 1fr; }
   .services-grid, .services-grid-2, .dest-grid, .fleet-grid, .process-steps, .process-steps-4 { grid-template-columns: 1fr; }
+  .org-grid { grid-template-columns: repeat(2, 1fr); }
   .service-highlight { flex-direction: column; }
   .cta-inner { flex-direction: column; text-align: center; }
   .footer-grid { grid-template-columns: 1fr; }

@@ -34,6 +34,7 @@ function nav_class(string $key, string $active): string
 
     <div class="admin-nav-group">Konten Halaman</div>
     <a href="content.php?section=stats" class="<?= nav_class('stats', $activeNav) ?>">Statistik</a>
+    <a href="content.php?section=organization" class="<?= nav_class('organization', $activeNav) ?>">Struktur Organisasi</a>
     <a href="content.php?section=services" class="<?= nav_class('services', $activeNav) ?>">Layanan</a>
     <a href="content.php?section=fleet" class="<?= nav_class('fleet', $activeNav) ?>">Armada</a>
     <a href="content.php?section=process" class="<?= nav_class('process', $activeNav) ?>">Mengapa Kami</a>

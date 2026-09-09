@@ -14,6 +14,7 @@ $textFields = [
     'hero_eyebrow', 'hero_headline', 'hero_subtext', 'hero_btn_primary_text', 'hero_btn_secondary_text', 'search_note_text',
     'about_badge_text', 'about_eyebrow', 'about_headline', 'about_paragraph_1', 'about_paragraph_2',
     'vision_text', 'mission_text',
+    'org_eyebrow', 'org_headline',
     'services_eyebrow', 'services_headline', 'services_subtext',
     'fleet_eyebrow', 'fleet_headline',
     'process_eyebrow', 'process_headline',
@@ -195,7 +196,12 @@ function v(array $s, string $key): string { return e($s[$key] ?? ''); }
   </fieldset>
 
   <fieldset>
-    <legend>Judul Bagian Layanan / Armada / Mengapa Kami / Mitra / Portofolio</legend>
+    <legend>Judul Bagian Struktur Organisasi / Layanan / Armada / Mengapa Kami / Mitra / Portofolio</legend>
+    <div class="field-grid">
+      <div class="field"><label for="org_eyebrow">Struktur Organisasi — Label Kecil</label><input type="text" id="org_eyebrow" name="org_eyebrow" value="<?= v($s, 'org_eyebrow') ?>"></div>
+      <div class="field"><label for="org_headline">Struktur Organisasi — Judul</label><input type="text" id="org_headline" name="org_headline" value="<?= v($s, 'org_headline') ?>"></div>
+    </div>
+
     <div class="field-grid">
       <div class="field"><label for="services_eyebrow">Layanan — Label Kecil</label><input type="text" id="services_eyebrow" name="services_eyebrow" value="<?= v($s, 'services_eyebrow') ?>"></div>
       <div class="field"><label for="services_headline">Layanan — Judul</label><input type="text" id="services_headline" name="services_headline" value="<?= v($s, 'services_headline') ?>"></div>

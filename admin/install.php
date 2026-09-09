@@ -103,6 +103,9 @@ try {
         'vision_text' => 'Berkomitmen untuk memberikan solusi terbaik sebagai penyedia jasa transportasi udara dan Ground Handling yang aman, efektif, efisien, dan profesional.',
         'mission_text' => 'Menjadi perusahaan penyedia jasa transportasi udara dan layanan Ground Handling terbaik, terdepan, dan terpercaya — menjangkau dari daerah terpencil hingga seluruh Indonesia.',
 
+        'org_eyebrow' => 'Struktur Organisasi',
+        'org_headline' => 'Tim di Balik Operasional Kami',
+
         'services_eyebrow' => 'Layanan Kami',
         'services_headline' => 'Solusi Aviasi Terpadu untuk Setiap Medan',
         'services_subtext' => 'Dari udara ke landasan — kami menangani perjalanan penumpang, kargo, hingga kebutuhan operasional maskapai di darat.',

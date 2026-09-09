@@ -22,6 +22,14 @@ function cms_sections(): array
             ],
             'has_icon' => false, 'has_image' => false, 'has_tags' => false, 'has_highlight' => false,
         ],
+        'organization' => [
+            'label' => 'Struktur Organisasi',
+            'fields' => [
+                'title' => 'Nama Lengkap',
+                'subtitle' => 'Jabatan',
+            ],
+            'has_icon' => false, 'has_image' => true, 'has_tags' => false, 'has_highlight' => false,
+        ],
         'services' => [
             'label' => 'Layanan',
             'fields' => [
