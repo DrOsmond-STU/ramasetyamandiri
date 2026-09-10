@@ -1,3 +1,15 @@
+# Panel admin tidak boleh di-cache oleh LiteSpeed / proxy mana pun.
+<IfModule LiteSpeed>
+    RewriteEngine On
+    RewriteRule .* - [E=Cache-Control:no-cache]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+</IfModule>
+
 <FilesMatch "^config(\.sample)?\.php$">
     <IfModule mod_authz_core.c>
         Require all denied
