@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+// functions.php mendefinisikan e() yang dipakai halaman ini. Tanpa baris ini,
+// pemanggilan e() menyebabkan fatal error yang mematikan halaman di tengah render.
+require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/csrf.php';
 
 if (cms_current_user()) {
