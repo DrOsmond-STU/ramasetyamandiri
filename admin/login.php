@@ -114,7 +114,7 @@ button:hover { background: #0a2a43; }
       <div class="alert"><?= e($error) ?></div>
     <?php endif; ?>
 
-    <form method="post" action="login.php">
+    <form method="post" action="<?= e(basename($_SERVER['SCRIPT_NAME'] ?? 'login.php')) ?>">
       <?= csrf_field() ?>
       <div class="field">
         <label for="username">Username</label>
